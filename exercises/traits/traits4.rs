@@ -23,7 +23,10 @@ impl Licensed for SomeSoftware {}
 impl Licensed for OtherSoftware {}
 
 // YOU MAY ONLY CHANGE THE NEXT LINE
-fn compare_license_types(software: ??, software_two: ??) -> bool {
+// fn compare_license_types(software: &dyn Licensed, software_two: &dyn Licensed )-> bool {
+//     software.licensing_info() == software_two.licensing_info()
+// }
+fn compare_license_types(software: Box<dyn Licensed>, software_two:Box<dyn Licensed> )-> bool {
     software.licensing_info() == software_two.licensing_info()
 }
 
